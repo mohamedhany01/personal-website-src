@@ -17,10 +17,10 @@
   },
   "license": "GPL-3.0",
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
+    "autoprefixer": "^10.4.8",
     "html-minifier-terser": "^7.0.0-alpha.2",
     "postcss-cli": "^9.1.0",
-    "sass": "^1.49.9",
-    "terser": "^5.12.1"
+    "sass": "^1.54.0",
+    "terser": "^5.14.2"
   }
 }
