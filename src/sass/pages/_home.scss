@@ -141,10 +141,91 @@
 }
 
 .projects {
-  &__row {
-    text-align: center;
-    font-size: 5rem;
-    color: rgba($themeClrPrimary, 0.8);
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5rem;
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      grid-gap: 8rem;
+    }
+    &-project {
+      box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+      background: linear-gradient(to right,
+      rgba($themeClrPrimary, 0.8),
+      rgba($themeClrPrimary, 0.8)),
+      url(../assets/svg/common-bg.svg);
+      border-radius: 5px;
+      .container {
+        padding: 4rem;
+        .item {
+          &:not(div:last-of-type) {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+      img {
+        background-color: #fff;
+        width: 100%;
+        border-radius: 4px 4px 0px 0px;
+      }
+      h3 {
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 2.5rem;
+        color: #fff;
+      }
+      p {
+        display: block;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 500;
+        max-width: 80rem;
+        margin: auto;
+        line-height: 1.6;
+      
+        @include respond(phone) {
+          font-size: 1.8rem;
+        }
+      }
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          padding: 1rem 1rem;
+          margin-bottom: 0.5rem;
+          margin-right: 0.5rem;
+          font-size: 1rem;
+          background: #fff;
+          border-radius: 5px;
+          font-weight: 600;
+          color: #000;
+        }
+      }
+      .btn-row {
+        display: flex;
+        justify-content: space-between;
+      
+        @include respond(tab-land) {
+          flex-direction: column;
+          align-items: center;
+          margin-top: 2rem;
+        }
+        .btn {
+          padding: 1.5rem 2.5rem;
+          font-size: 1rem;
+          @include respond(tab-land) {
+            width: 100%;
+            text-align: center;
+
+            &:last-of-type {
+              margin-top: 2rem;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
