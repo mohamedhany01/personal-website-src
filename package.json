@@ -10,16 +10,20 @@
     "compile:scss": "sass src/sass/main.scss --no-source-map dist/css/style.min.css",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/css/style.min.css --output dist/css/style.min.css",
     "compress:css": "sass dist/css/style.min.css dist/css/style.min.css --no-source-map --style compressed",
-    "compress:js": "mkdir dist/script && terser src/script/index.js --compress ecma=2015,computed_props=false --output dist/script/bundle.min.js",
-    "move:favicon": "find ./src -maxdepth 1 -regextype posix-egrep -regex '.+\\.(webmanifest|png|ico)$' -exec cp -a '{}' ./dist \\;",
-    "clean": "rm -rf dist/*",
-    "build": "mkdir -p dist && npm run clean && npm run compress:html && npm run compile:scss && npm run prefix:css && npm run compress:css && npm run compress:js && cp -r src/assets dist/assets && npm run move:favicon"
+    "compress:js": "terser src/script/index.js --compress ecma=2015,computed_props=false --output dist/script/bundle.min.js",
+    "copy:favicon": "node utilities/copy-favicon.js",
+    "copy:assets": "node utilities/copy-assets.js",
+    "clean": "rimraf dist",
+    "create:dist": "node utilities/mkdir.js",
+    "build": "npm run clean && npm run create:dist && npm run compress:html && npm run compile:scss && npm run prefix:css && npm run compress:css && npm run compress:js && npm run copy:assets && npm run copy:favicon"
   },
   "license": "GPL-3.0",
   "devDependencies": {
     "autoprefixer": "^10.4.8",
     "html-minifier-terser": "^7.0.0-alpha.2",
+    "mkdirp": "^3.0.1",
     "postcss-cli": "^9.1.0",
+    "rimraf": "^5.0.1",
     "sass": "^1.54.0",
     "terser": "^5.14.2"
   }
