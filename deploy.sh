@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd ..
-git clone https://github.com/mohamedhany01/mohamedhany01.github.io
+git clone git@github.com:mohamedhany01/mohamedhany01.github.io.git
 cd personal-website-src || exit 0
 
 npm run build
